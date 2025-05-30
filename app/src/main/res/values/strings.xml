@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Quiz1</string>
+    <string name="title_activity_inscription">InscriptionActivity</string>
+    <string name="title_activity_insctiption_screen">InsctiptionScreen</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+</resources>
