@@ -6,6 +6,12 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quiz1.R
+import com.example.quiz1.api.ApiClient
+import com.example.quiz1.api.LoginApi
+import com.example.quiz1.model.Usuario
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -13,27 +19,40 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val etCorreo = findViewById<EditText>(R.id.etCorreo)
+        val etCedula = findViewById<EditText>(R.id.etCedula)
         val etContrasena = findViewById<EditText>(R.id.etContrasena)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvRegistro = findViewById<TextView>(R.id.tvRegistro)
 
         val prefs = getSharedPreferences("datos_usuario", MODE_PRIVATE)
+        val api = ApiClient.retrofit.create(LoginApi::class.java)
 
         btnLogin.setOnClickListener {
-            val correo = etCorreo.text.toString()
+            val cedula = etCedula.text.toString()
             val clave = etContrasena.text.toString()
-
-            val correoGuardado = prefs.getString("usuario", "")
-            val claveGuardada = prefs.getString("clave", "")
-            val estaLogueado = prefs.getBoolean("logueado", false)
-
-            if (correo == correoGuardado && clave == claveGuardada) {
-                prefs.edit().putBoolean("logueado", true).apply()
-                startActivity(Intent(this, MenuActivity::class.java))
-                finish()
+            if (cedula.isBlank() || clave.isBlank()) {
+                Toast.makeText(this, "Complete los campos", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
+                val usuario = Usuario(cedula, clave, "")
+                api.login(usuario).enqueue(object : Callback<Usuario> {
+                    override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                        if (response.isSuccessful) {
+                            val user = response.body() ?: return
+                            prefs.edit()
+                                .putString("cedula", user.cedula)
+                                .putString("rol", user.rol)
+                                .apply()
+                            startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
+                            finish()
+                        } else {
+                            Toast.makeText(this@LoginActivity, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                        Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
             }
         }
 
