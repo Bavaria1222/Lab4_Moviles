@@ -1,6 +1,5 @@
 package com.example.quiz1.activity.carreraActivity
 
-import android.app.Activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -43,23 +42,24 @@ class EditarCarreraActivity : AppCompatActivity() {
     }
 
     private fun actualizar(){
-        val c = Carrera(idCarrera,
+        val c = Carrera(
+            idCarrera,
             codigo = edtCodigo.text.toString(),
             nombre = edtNombre.text.toString(),
             titulo = edtTitulo.text.toString()
         )
-        api.modificar(c).enqueue(object: Callback<Void>{
+        api.modificar(c).enqueue(object: Callback<Void> {
             override fun onResponse(call: Call<Void>, r: Response<Void>) {
                 if(r.isSuccessful){
-                    Toast.makeText(this@EditarCarreraActivity,"Carrera actualizada",Toast.LENGTH_SHORT).show()
-                    setResult(Activity.RESULT_OK)
+                    Toast.makeText(this@EditarCarreraActivity,"Carrera actualizada", Toast.LENGTH_SHORT).show()
+                    setResult(RESULT_OK)
                     finish()
                 } else {
-                    Toast.makeText(this@EditarCarreraActivity,"Error al actualizar",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@EditarCarreraActivity,"Error al actualizar", Toast.LENGTH_SHORT).show()
                 }
             }
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@EditarCarreraActivity,"Fallo: ${t.message}",Toast.LENGTH_LONG).show()
+                Toast.makeText(this@EditarCarreraActivity,"Fallo: ${t.message}", Toast.LENGTH_LONG).show()
             }
         })
     }

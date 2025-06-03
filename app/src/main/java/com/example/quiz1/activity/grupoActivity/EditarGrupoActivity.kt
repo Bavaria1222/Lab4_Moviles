@@ -1,8 +1,9 @@
 package com.example.quiz1.activity.grupoActivity
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quiz1.R
 import com.example.quiz1.api.ApiClient
@@ -39,11 +40,11 @@ class EditarGrupoActivity : AppCompatActivity() {
 
         btnAct.setOnClickListener {
             val actualizado = Grupo(
-                idGrupo    = idGrupo,
-                idCiclo    = edtCiclo.text.toString().toIntOrNull() ?: 0,
-                idCurso    = edtCurso.text.toString().toIntOrNull() ?: 0,
-                numGrupo   = edtNum.text.toString().toIntOrNull() ?: 0,
-                horario    = edtHorario.text.toString(),
+                idGrupo = idGrupo,
+                idCiclo = edtCiclo.text.toString().toIntOrNull() ?: 0,
+                idCurso = edtCurso.text.toString().toIntOrNull() ?: 0,
+                numGrupo = edtNum.text.toString().toIntOrNull() ?: 0,
+                horario = edtHorario.text.toString(),
                 idProfesor = edtProf.text.toString()
             )
             api.modificar(actualizado).enqueue(object: Callback<Void> {
@@ -51,7 +52,7 @@ class EditarGrupoActivity : AppCompatActivity() {
                     if (r.isSuccessful) {
                         Toast.makeText(this@EditarGrupoActivity,
                             "Grupo actualizado", Toast.LENGTH_SHORT).show()
-                        setResult(Activity.RESULT_OK)
+                        setResult(RESULT_OK)
                         finish()
                     } else {
                         Toast.makeText(this@EditarGrupoActivity,

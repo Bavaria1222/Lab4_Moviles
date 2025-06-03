@@ -1,13 +1,14 @@
 package com.example.quiz1.activity.carreraActivity
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gestionacademicaapp.model.Carrera
 import com.example.quiz1.R
-import com.example.quiz1.api.CarreraApi
 import com.example.quiz1.api.ApiClient
+import com.example.quiz1.api.CarreraApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,16 +61,16 @@ class InsertarCarreraActivity : AppCompatActivity() {
         btnGuardar.setOnClickListener {
             val carrera = Carrera(
                 idCarrera = edtIdCarrera.text.toString().toIntOrNull() ?: 0,
-                codigo    = edtCodigo.text.toString(),
-                nombre    = edtNombre.text.toString(),
-                titulo    = edtTitulo.text.toString()
+                codigo = edtCodigo.text.toString(),
+                nombre = edtNombre.text.toString(),
+                titulo = edtTitulo.text.toString()
             )
             api.insertar(carrera).enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@InsertarCarreraActivity,
                             "Carrera insertada", Toast.LENGTH_SHORT).show()
-                        setResult(Activity.RESULT_OK)
+                        setResult(RESULT_OK)
                         finish()
                     } else {
                         Toast.makeText(this@InsertarCarreraActivity,

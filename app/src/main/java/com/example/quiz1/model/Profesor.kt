@@ -1,9 +1,10 @@
 package com.example.quiz1.model
 
+import java.io.Serializable
+
 data class Profesor(
-    val id: Int,
+    val cedula: String,
     val nombre: String,
     val telefono: String,
-    val email: String,
-    val especialidad: String
-)
+    val email: String
+) : Serializable

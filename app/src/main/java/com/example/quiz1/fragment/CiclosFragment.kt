@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.*
 import com.example.gestionacademicaapp.model.Ciclo
 import com.example.quiz1.R
-import com.example.quiz1.activity.EditarCicloActivity
-import com.example.quiz1.activity.ciclo.InsertarCicloActivity
+import com.example.quiz1.activity.cicloActivity.EditarCicloActivity
+import com.example.quiz1.activity.cicloActivity.InsertarCicloActivity
 import com.example.quiz1.adapter.CiclosAdapter
 import com.example.quiz1.api.ApiClient
 import com.example.quiz1.api.CicloApi

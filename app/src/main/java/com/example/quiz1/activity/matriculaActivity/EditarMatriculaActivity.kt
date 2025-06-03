@@ -1,8 +1,9 @@
 package com.example.quiz1.activity.matriculaActivity
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quiz1.R
 import com.example.quiz1.api.ApiClient
@@ -50,7 +51,7 @@ class EditarMatriculaActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@EditarMatriculaActivity, "Matrícula actualizada", Toast.LENGTH_SHORT).show()
-                        setResult(Activity.RESULT_OK)
+                        setResult(RESULT_OK)
                         finish()
                     } else {
                         Toast.makeText(this@EditarMatriculaActivity, "Error al actualizar", Toast.LENGTH_SHORT).show()

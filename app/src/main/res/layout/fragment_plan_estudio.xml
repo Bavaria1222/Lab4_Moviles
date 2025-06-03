@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:padding="8dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp">
+    android:layout_height="match_parent">
 
-    <!-- SearchView para filtrar Profesores -->
+    <!-- SearchView para filtrar en tiempo real -->
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchViewProfesores"
+        android:id="@+id/searchViewPlanes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Buscar profesor"
+        android:queryHint="Buscar plan"
         android:iconifiedByDefault="false"
         android:layout_marginBottom="8dp" />
 
-    <!-- RecyclerView para listar Profesores -->
+    <!-- RecyclerView donde se muestran los planes de estudio -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewProfesores"
+        android:id="@+id/recyclerViewPlanes"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="4dp"/>
+        android:padding="4dp" />
 
-    <!-- FloatingActionButton para insertar -->
+    <!-- FloatingActionButton para insertar un nuevo plan -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabProfesores"
+        android:id="@+id/fabPlanes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
+        android:layout_gravity="end"
         android:layout_margin="16dp"
-        android:contentDescription="Agregar profesor"
-        android:src="@android:drawable/ic_input_add"/>
+        android:contentDescription="Agregar plan"
+        android:src="@android:drawable/ic_input_add" />
 </LinearLayout>

@@ -1,8 +1,9 @@
-package com.example.quiz1.activity
+package com.example.quiz1.activity.cicloActivity
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gestionacademicaapp.model.Ciclo
 import com.example.quiz1.R
@@ -54,12 +55,12 @@ class EditarCicloActivity : AppCompatActivity() {
             api.modificar(mod).enqueue(object: Callback<Void> {
                 override fun onResponse(c: Call<Void>, r: Response<Void>) {
                     if (r.isSuccessful) {
-                        Toast.makeText(this@EditarCicloActivity,"Ciclo actualizado",Toast.LENGTH_SHORT).show()
-                        setResult(Activity.RESULT_OK); finish()
-                    } else Toast.makeText(this@EditarCicloActivity,"Error al actualizar",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@EditarCicloActivity,"Ciclo actualizado", Toast.LENGTH_SHORT).show()
+                        setResult(RESULT_OK); finish()
+                    } else Toast.makeText(this@EditarCicloActivity,"Error al actualizar", Toast.LENGTH_SHORT).show()
                 }
                 override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Toast.makeText(this@EditarCicloActivity,"Fallo: ${t.message}",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@EditarCicloActivity,"Fallo: ${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
         }

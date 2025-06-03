@@ -42,14 +42,14 @@ class MenuActivity : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
-
-        // Cursos
+        //Cursos
         findViewById<TextView>(R.id.btnCursos).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, CursosFragment())
                 .addToBackStack(null)
                 .commit()
         }
+
 
         // Ciclos
         findViewById<TextView>(R.id.btnCiclos).setOnClickListener {
@@ -71,6 +71,22 @@ class MenuActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.btnMatriculas).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, MatriculaFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        //Plan Estudio
+        findViewById<TextView>(R.id.btnPlanEstudio).setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.contenedorFragmento, PlanEstudioFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+
+        findViewById<TextView>(R.id.btnProfesores).setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.contenedorFragmento, ProfesoresFragment())
                 .addToBackStack(null)
                 .commit()
         }

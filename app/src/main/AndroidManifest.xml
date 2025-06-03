@@ -66,12 +66,12 @@
 
         <!-- CRUD de Ciclos -->
         <activity
-            android:name=".activity.ciclo.InsertarCicloActivity"
+            android:name=".activity.cicloActivity.InsertarCicloActivity"
             android:exported="false"
             android:label="Insertar Ciclo"
             android:parentActivityName=".activity.MenuActivity" />
         <activity
-            android:name=".activity.EditarCicloActivity"
+            android:name=".activity.cicloActivity.EditarCicloActivity"
             android:exported="false"
             android:label="Editar Ciclo"
             android:parentActivityName=".activity.MenuActivity" />
@@ -99,6 +99,42 @@
             android:parentActivityName=".activity.MenuActivity"
             android:exported="false"
             android:label="Editar Matrícula" />
+
+        <activity
+            android:name=".activity.cursoActivity.InsertarCursoActivity"
+            android:parentActivityName=".activity.MenuActivity"
+            android:exported="false"
+            android:label="Insertar Curso" />
+
+        <activity
+            android:name=".activity.cursoActivity.EditarCursoActivity"
+            android:parentActivityName=".activity.MenuActivity"
+            android:exported="false"
+            android:label="Editar Curso" />
+
+        <activity
+            android:name=".activity.planEstudioActivity.InsertarPlanEstudioActivity"
+            android:label="Insertar Plan"
+            android:exported="false"
+            android:parentActivityName=".activity.MenuActivity" />
+
+        <activity
+            android:name=".activity.planEstudioActivity.EditarPlanEstudioActivity"
+            android:label="Editar Plan"
+            android:exported="false"
+            android:parentActivityName=".activity.MenuActivity" />
+        <activity
+            android:name=".activity.profesorActivity.InsertarProfesorActivity"
+            android:label="Insertar Profesor"
+            android:exported="false"
+            android:parentActivityName=".activity.MenuActivity" />
+
+        <activity
+            android:name=".activity.profesorActivity.EditarProfesorActivity"
+            android:label="Editar Profesor"
+            android:exported="false"
+            android:parentActivityName=".activity.MenuActivity" />
+
 
 
     </application>

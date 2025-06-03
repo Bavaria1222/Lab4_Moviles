@@ -1,8 +1,9 @@
-package com.example.quiz1.activity.ciclo
+package com.example.quiz1.activity.cicloActivity
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gestionacademicaapp.model.Ciclo
 import com.example.quiz1.R
@@ -39,12 +40,12 @@ class InsertarCicloActivity : AppCompatActivity() {
             api.insertar(c).enqueue(object: Callback<Void> {
                 override fun onResponse(call: Call<Void>, resp: Response<Void>) {
                     if (resp.isSuccessful) {
-                        Toast.makeText(this@InsertarCicloActivity,"Ciclo insertado",Toast.LENGTH_SHORT).show()
-                        setResult(Activity.RESULT_OK); finish()
-                    } else Toast.makeText(this@InsertarCicloActivity,"Error al insertar",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@InsertarCicloActivity,"Ciclo insertado", Toast.LENGTH_SHORT).show()
+                        setResult(RESULT_OK); finish()
+                    } else Toast.makeText(this@InsertarCicloActivity,"Error al insertar", Toast.LENGTH_SHORT).show()
                 }
                 override fun onFailure(c: Call<Void>, t: Throwable) {
-                    Toast.makeText(this@InsertarCicloActivity,"Fallo: ${t.message}",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@InsertarCicloActivity,"Fallo: ${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
         }

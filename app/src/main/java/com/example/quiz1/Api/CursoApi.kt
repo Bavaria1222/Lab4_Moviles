@@ -1,5 +1,5 @@
-// src/main/java/com/example/quiz1/api/CursoApi.kt
 package com.example.quiz1.api
+
 import com.example.quiz1.model.Curso
 import retrofit2.Call
 import retrofit2.http.*
@@ -7,9 +7,6 @@ import retrofit2.http.*
 interface CursoApi {
     @GET("cursos")
     fun listar(): Call<List<Curso>>
-
-    @GET("cursos/{id}")
-    fun buscar(@Path("id") id: Int): Call<Curso>
 
     @POST("cursos")
     fun insertar(@Body curso: Curso): Call<Void>
