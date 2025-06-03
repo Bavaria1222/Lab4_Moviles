@@ -40,6 +40,10 @@ class MenuActivity : AppCompatActivity() {
         val rol = prefs.getString("rol", "")
         findViewById<TextView>(R.id.tvBienvenida).text = "Bienvenido, $cedula"
 
+        // Obtiene los items del menú según el rol almacenado en preferencias.
+        // El API entrega los roles en mayúsculas (ADMINISTRADOR, PROFESOR,
+        // ALUMNO, MATRICULADOR), por lo que se normaliza a mayúsculas antes de
+        // comparar.
         items.addAll(obtenerItemsPorRol(rol))
 
         val recyclerView = findViewById<RecyclerView>(R.id.menuRecyclerView)
@@ -61,8 +65,8 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun obtenerItemsPorRol(rol: String?): List<Pair<String, androidx.fragment.app.Fragment>> {
-        return when (rol) {
-            "Administrador" -> listOf(
+        return when (rol?.uppercase()) {
+            "ADMINISTRADOR" -> listOf(
                 "Alumnos" to AlumnosFragment(),
                 "Profesores" to ProfesoresFragment(),
                 "Usuarios" to UsuariosFragment(),
@@ -73,9 +77,9 @@ class MenuActivity : AppCompatActivity() {
                 "Matrículas" to MatriculaFragment(),
                 "Plan de Estudio" to PlanEstudioFragment()
             )
-            "Matriculador" -> listOf("Matrículas" to MatriculaFragment())
-            "Profesor" -> emptyList()
-            "Alumno" -> emptyList()
+            "MATRICULADOR" -> listOf("Matrículas" to MatriculaFragment())
+            "PROFESOR" -> emptyList()
+            "ALUMNO" -> emptyList()
             else -> emptyList()
         }
     }
