@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quiz1.R
 import com.example.quiz1.api.ApiClient
-import com.example.quiz1.api.ProfesorApi
 import com.example.quiz1.model.Profesor
 import retrofit2.Call
 import retrofit2.Callback

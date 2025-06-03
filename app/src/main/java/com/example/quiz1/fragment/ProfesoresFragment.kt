@@ -15,7 +15,6 @@ import com.example.quiz1.activity.profesorActivity.EditarProfesorActivity
 import com.example.quiz1.activity.profesorActivity.InsertarProfesorActivity
 import com.example.quiz1.adapter.ProfesoresAdapter
 import com.example.quiz1.api.ApiClient
-import com.example.quiz1.api.ProfesorApi
 import com.example.quiz1.model.Profesor
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call

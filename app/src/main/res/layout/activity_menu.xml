@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- 1) Texto de bienvenida -->
     <TextView
         android:id="@+id/tvBienvenida"
         android:layout_width="wrap_content"
@@ -14,6 +15,7 @@
         android:textSize="18sp"
         android:paddingBottom="24dp"/>
 
+    <!-- 2) Botones de menú en el orden deseado -->
     <TextView
         android:id="@+id/btnEstudiantes"
         android:layout_width="wrap_content"
@@ -28,6 +30,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profesores"
+        android:textSize="16sp"
+        android:textColor="?attr/colorPrimary"
+        android:padding="8dp"/>
+
+    <!-- ◄ Insertamos “Usuarios” justo aquí, después de Profesores ► -->
+    <TextView
+        android:id="@+id/btnUsuarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuarios"
         android:textSize="16sp"
         android:textColor="?attr/colorPrimary"
         android:padding="8dp"/>
@@ -50,7 +62,6 @@
         android:textColor="?attr/colorPrimary"
         android:padding="8dp"/>
 
-    <!-- Nueva opción para Ciclos -->
     <TextView
         android:id="@+id/btnCiclos"
         android:layout_width="wrap_content"
@@ -60,7 +71,6 @@
         android:textColor="?attr/colorPrimary"
         android:padding="8dp"/>
 
-    <!-- Nueva opción para Grupos -->
     <TextView
         android:id="@+id/btnGrupos"
         android:layout_width="wrap_content"
@@ -88,15 +98,12 @@
         android:textColor="?attr/colorPrimary"
         android:padding="8dp"/>
 
-
-    <!-- Contenedor donde se cargan los fragments -->
+    <!-- 3) El FrameLayout va al final para alojar el fragment cargado -->
     <FrameLayout
         android:id="@+id/contenedorFragmento"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginTop="16dp"/>
-
-
 
 </LinearLayout>

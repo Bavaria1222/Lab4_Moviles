@@ -19,7 +19,8 @@ class MenuActivity : AppCompatActivity() {
         // Mostrar saludo
         findViewById<TextView>(R.id.tvBienvenida).text = "Bienvenido, $usuario"
 
-        // Estudiantes
+        // ------------------------------
+        // 1) Estudiantes
         findViewById<TextView>(R.id.btnEstudiantes).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, AlumnosFragment())
@@ -27,7 +28,7 @@ class MenuActivity : AppCompatActivity() {
                 .commit()
         }
 
-        // Profesores
+        // 2) Profesores
         findViewById<TextView>(R.id.btnProfesores).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, ProfesoresFragment())
@@ -35,14 +36,23 @@ class MenuActivity : AppCompatActivity() {
                 .commit()
         }
 
-        // Carreras
+        // 3) Usuarios
+        findViewById<TextView>(R.id.btnUsuarios).setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.contenedorFragmento, UsuariosFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        // 4) Carreras
         findViewById<TextView>(R.id.btnCarreras).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, CarrerasFragment())
                 .addToBackStack(null)
                 .commit()
         }
-        //Cursos
+
+        // 5) Cursos
         findViewById<TextView>(R.id.btnCursos).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, CursosFragment())
@@ -50,8 +60,7 @@ class MenuActivity : AppCompatActivity() {
                 .commit()
         }
 
-
-        // Ciclos
+        // 6) Ciclos
         findViewById<TextView>(R.id.btnCiclos).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, CiclosFragment())
@@ -59,7 +68,7 @@ class MenuActivity : AppCompatActivity() {
                 .commit()
         }
 
-        // Grupos
+        // 7) Grupos
         findViewById<TextView>(R.id.btnGrupos).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, GruposFragment())
@@ -67,7 +76,7 @@ class MenuActivity : AppCompatActivity() {
                 .commit()
         }
 
-        // Matrículas
+        // 8) Matrículas
         findViewById<TextView>(R.id.btnMatriculas).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, MatriculaFragment())
@@ -75,21 +84,12 @@ class MenuActivity : AppCompatActivity() {
                 .commit()
         }
 
-        //Plan Estudio
+        // 9) Plan de Estudio
         findViewById<TextView>(R.id.btnPlanEstudio).setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.contenedorFragmento, PlanEstudioFragment())
                 .addToBackStack(null)
                 .commit()
         }
-
-
-        findViewById<TextView>(R.id.btnProfesores).setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.contenedorFragmento, ProfesoresFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-
     }
 }

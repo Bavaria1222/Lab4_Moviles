@@ -1,5 +1,3 @@
-package com.example.quiz1.api
-
 import com.example.quiz1.model.Profesor
 import retrofit2.Call
 import retrofit2.http.*

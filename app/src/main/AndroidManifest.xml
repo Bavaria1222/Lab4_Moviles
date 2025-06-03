@@ -135,6 +135,17 @@
             android:exported="false"
             android:parentActivityName=".activity.MenuActivity" />
 
+        <activity
+            android:name=".activity.usuarioActivity.InsertarUsuarioActivity"
+            android:parentActivityName=".activity.MenuActivity"
+            android:exported="false"
+            android:label="Insertar Usuario" />
+
+        <activity
+            android:name=".activity.usuarioActivity.EditarUsuarioActivity"
+            android:parentActivityName=".activity.MenuActivity"
+            android:exported="false"
+            android:label="Editar Usuario" />
 
 
     </application>
