@@ -38,9 +38,12 @@ class LoginActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                         if (response.isSuccessful) {
                             val user = response.body() ?: return
+                            // Guardamos el rol en mayúsculas para que el menú
+                            // pueda evaluarlo sin depender del formato que
+                            // envíe el API.
                             prefs.edit()
                                 .putString("cedula", user.cedula)
-                                .putString("rol", user.rol)
+                                .putString("rol", user.rol.uppercase())
                                 .apply()
                             startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
                             finish()
