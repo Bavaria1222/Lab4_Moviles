@@ -1,10 +1,12 @@
 package com.example.quiz1.activity
 
 import android.content.Context.MODE_PRIVATE
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -24,6 +26,9 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         drawerLayout = findViewById(R.id.drawerLayout)
         toggle = ActionBarDrawerToggle(
             this,
@@ -40,10 +45,23 @@ class MenuActivity : AppCompatActivity() {
         val rol = prefs.getString("rol", "")
         findViewById<TextView>(R.id.tvBienvenida).text = "Bienvenido, $cedula"
 
-        // Obtiene los items del menú según el rol almacenado en preferencias.
-        // El API entrega los roles en mayúsculas (ADMINISTRADOR, PROFESOR,
-        // ALUMNO, MATRICULADOR), por lo que se normaliza a mayúsculas antes de
-        // comparar.
+        // Configurar botón de cerrar sesión
+        val btnLogout = findViewById<TextView>(R.id.btnLogout)
+        btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Cerrar sesión")
+                .setMessage("¿Deseás cerrar sesión?")
+                .setPositiveButton("Sí") { _, _ ->
+                    prefs.edit().clear().apply()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+
         items.addAll(obtenerItemsPorRol(rol))
 
         val recyclerView = findViewById<RecyclerView>(R.id.menuRecyclerView)
